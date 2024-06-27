@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="FundNest.css" />
+    <style>
+      @media (max-width: 768px) {
+        .card-body {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card-body .d-flex {
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .card-body img {
+          width: 15rem;
+          height: 15rem;
+          margin-bottom: 1rem;
+        }
+
+        .card-body .gap-5 {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .card-body .mt-4 {
+          text-align: center;
+        }
+
+        .card-body .gap-4 {
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+        }
+
+        .card-body .btn {
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">LOGO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="Home.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#aboutFundnest">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blogs">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li> -->
+
+              <li class="nav-item" id="entrepreneurIdea" style="display: none">
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
+              </li>
+              <!-- <li class="nav-item" id="investorIdea" style="display: none">
+          <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
+        </li> -->
+              <li class="nav-item" id="investorlist" style="display: none">
+                <a class="nav-link" href="InvestorPane.html">Investor List</a>
+              </li>
+              <li class="nav-item" id="entrepreneurList" style="display: none">
+                <a class="nav-link" href="EntrepreneurPane.html"
+                  >Entrepreneur List</a
+                >
+              </li>
+              <li class="nav-item" id="investorprofile" style="display: none">
+                <a class="nav-link" href="InvestorProfilePage.html"
+                  >Your Profile</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                id="entrepreneurprofile"
+                style="display: none"
+              >
+                <a class="nav-link" href="EntrepreneurProfilePage.html"
+                  >Your Profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="loginLink" href="Login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="logoutLink" href="Home.html">Log Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div>
+        <h1 class="head display-4 Investor">
+          Connect With <span style="color: #1753ef">Startup</span>
+        </h1>
+        <div class="d-flex justify-content-center mt-5">
+          <input
+            type="search"
+            class="form-control shadow-lg"
+            style="width: 85%; height: 2.7rem"
+          />
+        </div>
+
+        <div class="dropdown d-flex justify-content-center mt-5">
+          <button
+            class="btn btn-primary dropdown-toggle shadow-lg"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            style="width: 15rem; height: 3rem"
+          >
+            Filter
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 7rem" class="investors-container">
+        <!-- <div class="card border rounded-lg shadow-lg bg-white" class="">
+          <div class="card-body p-5" style="border: 1px solid #1753ef;">
+            <div class="d-flex align-items-center gap-4">
+              <img
+                id="profilePicture"
+                class="rounded-circle"
+                src="Images/Ellipse 15.png"
+                alt="Profile Picture"
+                style="width: 20rem; height: 20rem; border: 1px solid #1753ef;"
+              />
+              <div class="">
+                <div class="d-flex align-items-center gap-5">
+                  <h2 class="text-primary fw-semibold" id="userName"></h2>
+                  <span class="bg-primary text-white px-4 py-2 rounded" id="userEmail">Analyst at AMR Solutions</span>
+                </div>
+                <div class="d-flex align-items-center gap-4 mt-2 text-secondary">
+                  <div class="d-flex align-items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-star-fill text-primary"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                      />
+                    </svg>
+                    <span id="userRole"></span>
+                    <span>10+ years of experience</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-geo-alt-fill text-primary"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                      />
+                    </svg>
+                    <span>New Delhi</span>
+                  </div>
+                  <div class="d-flex align-items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-lightbulb-fill text-primary"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5"
+                      />
+                    </svg>
+                    <span>20+ Ideas</span>
+                  </div>
+                </div>
+                <p class="mt-4" style="font-size: x-large" id="userDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="mt-4 d-flex gap-4">
+                  <button
+                    class="btn btn-primary d-flex align-items-center gap-2"
+                    style="padding-left: 6rem; padding-right: 6rem;"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-person-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+                      />
+                    </svg>
+                    <span>View Profile</span>
+                  </button>
+                  <button
+                    class="btn btn-danger d-flex align-items-center gap-2"
+                    style="padding-left: 6rem; padding-right: 6rem;"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-megaphone-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06"
+                      />
+                    </svg>
+                    <span>Explore Interest</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      function updateNavbar() {
+        const token = localStorage.getItem("token");
+        const loginLink = document.getElementById("loginLink");
+        const logoutLink = document.getElementById("logoutLink");
+
+        if (token) {
+          loginLink.style.display = "none";
+          logoutLink.style.display = "block";
+        } else {
+          loginLink.style.display = "block";
+          logoutLink.style.display = "none";
+        }
+      }
+
+      updateNavbar();
+
+      // Function to check user type and update navigation items
+      async function updateUserNavigation(token) {
+        try {
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (response.status === 200) {
+            // console.log(response.data);
+            const userType = response.data.role;
+            // console.log(userType);
+            if (userType === "investor") {
+              document.getElementById("entrepreneurList").style.display =
+                "block";
+              document.getElementById("entrepreneurIdea").style.display =
+                "block";
+              document.getElementById("investorprofile").style.display =
+                "block";
+            } else if (userType === "enterprenuer") {
+              document.getElementById("investorlist").style.display = "block";
+              document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("entrepreneurprofile").style.display =
+                "block";
+            }
+          } else {
+            console.error("Failed to fetch user type:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+          updateUserNavigation(token);
+        }
+      });
+
+      // Function to handle logout
+      async function handleLogout() {
+        try {
+          const response = await axios.post(
+            "https://fundnestbackend.onrender.com/auth/logout"
+          );
+          alert(response.data.message);
+          localStorage.removeItem("token");
+          window.location.href = "Home.html";
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Logout failed. Please try again.");
+        }
+      }
+
+      // Add event listener to the logout link
+      document
+        .getElementById("logoutLink")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          handleLogout(); // Call the logout function when link is clicked
+        });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            console.error("Token not found");
+            return;
+          }
+
+          const response = await axios.get(
+            "http://localhost:3000/investor/enterprenuers",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          const investorsList = response.data.investorsList;
+          console.log(investorsList);
+
+          // Select the container where investor cards will be appended
+          const container = document.querySelector(".investors-container");
+
+          // Iterate over each investor in the list and create a card
+          investorsList.forEach((investor) => {
+            // Create investor card
+            const investorCard = document.createElement("div");
+            investorCard.classList.add(
+              "card",
+              "border",
+              "rounded-lg",
+              "shadow-lg",
+              "bg-white",
+              "mt-4"
+            );
+
+            // Create card body
+            const investorCardBody = document.createElement("div");
+            investorCardBody.classList.add(
+              "card-body",
+              "p-5",
+              "border",
+              "border-primary"
+            );
+
+            // Create content structure similar to the provided HTML
+            const content = `
+          <div class="d-flex align-items-center gap-4">
+            <img class="rounded-circle" src="Images/IMG_2025-1.jpg" alt="Profile Picture" style="width: 20rem; height: 20rem; border: 1px solid #1753ef;" />
+            <div>
+              <div class="d-flex align-items-center gap-5">
+                <h2 class="text-primary fw-semibold">${investor.name}</h2>
+                <span class="bg-primary text-white px-4 py-2 rounded">${investor.role}</span>
+              </div>
+              <div class="d-flex align-items-center gap-4 mt-2 text-secondary">
+                <div class="d-flex align-items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill text-primary" viewBox="0 0 16 16">
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                  </svg>
+                  <span>${investor.experience} years of experience</span>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill text-primary" viewBox="0 0 16 16">
+                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                  </svg>
+                  <span>${investor.location}</span>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-lightbulb-fill text-primary" viewBox="0 0 16 16">
+                    <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5" />
+                  </svg>
+                  <span>${investor.ideas} Ideas</span>
+                </div>
+              </div>
+              <p class="mt-4" style="font-size: x-large">${investor.description}</p>
+              <div class="mt-4 d-flex gap-4">
+                <a href="EntrepreneurProfile.html?id=${investor._id}"><button class="btn btn-primary d-flex align-items-center gap-2" style="padding-left: 6rem; padding-right: 6rem;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                  </svg>
+                  <span>View Profile</span>
+                </button></a>
+                <button class="btn btn-danger d-flex align-items-center gap-2" style="padding-left: 6rem; padding-right: 6rem;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+                    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06" />
+                  </svg>
+                  <span>Explore Interest</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+            // Set the HTML content to card body
+            investorCardBody.innerHTML = content;
+
+            // Append investor card body to card
+            investorCard.appendChild(investorCardBody);
+
+            // Append investor card to the container
+            container.appendChild(investorCard);
+          });
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
