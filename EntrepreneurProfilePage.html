@@ -623,7 +623,7 @@
           }
 
           const response = await axios.get(
-            "http://localhost:3000/enterprenuer/currentuser",
+            "http://103.189.172.172:3000/enterprenuer/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -692,7 +692,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://103.189.172.172:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -774,7 +774,7 @@
             }
 
             const response = await axios.post(
-              "http://localhost:3000/businessidea/business-idea",
+              "http://103.189.172.172:3000/businessidea/business-idea",
               {
                 yourName,
                 companyName,
@@ -806,7 +806,7 @@
           }
 
           const response = await axios.get(
-            `http://localhost:3000/businessidea/business-idea${id}`,
+            `http://103.189.172.172:3000/businessidea/business-idea${id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`, // Replace with your actual auth token

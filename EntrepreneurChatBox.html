@@ -221,7 +221,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://103.189.172.172:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -312,7 +312,7 @@
       const investorId = params.id;
       // console.log(investorId);
       const response = await axios.get(
-        `http://localhost:3000/enterprenuer/investor/${investorId}`,
+        `http://103.189.172.172:3000/enterprenuer/investor/${investorId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -354,7 +354,7 @@
     
     try {
       const response = await axios.post(
-        ` http://localhost:3000/investor/send-message/${entrepreneurId}`,
+        ` http://103.189.172.172:3000/investor/send-message/${entrepreneurId}`,
         { message, receiverId, roomId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -385,7 +385,7 @@
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/enterprenuer/${roomId}`,
+        `http://103.189.172.172:3000/enterprenuer/${roomId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
