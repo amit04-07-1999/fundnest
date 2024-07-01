@@ -306,7 +306,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://103.189.172.172:3000//check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -378,7 +378,7 @@
           }
 
           const response = await axios.get(
-            "http://localhost:3000/businessidea/business-idea",
+            "http://103.189.172.172:3000//businessidea/business-idea",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
