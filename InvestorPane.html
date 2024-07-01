@@ -54,8 +54,7 @@
     </style>
   </head>
   <body>
-    <div class="container ">
-
+    <div class="container">
       <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -90,9 +89,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="Consultancy.html">Consult Us</a>
               </li>
-              
+
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
-                <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
               </li>
               <!-- <li class="nav-item" id="investorIdea" style="display: none">
                 <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
@@ -123,13 +124,14 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      
 
       <div>
         <h1 class="head display-4 Investor">
@@ -161,8 +163,7 @@
         </div>
       </div>
 
-
-      <div style="margin-top: 7rem;" class="investors-container">
+      <div style="margin-top: 7rem" class="investors-container">
         <!-- <div class="card border rounded-lg shadow-lg bg-white" class="">
           <div class="card-body p-5" style="border: 1px solid #1753ef;">
             <div class="d-flex align-items-center gap-4">
@@ -270,8 +271,6 @@
           </div>
         </div> -->
       </div>
-
-
     </div>
 
     <script
@@ -301,11 +300,14 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000//check/role", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -363,39 +365,54 @@
         });
     </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', async function() {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("Token not found");
-        return;
-      }
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            console.error("Token not found");
+            return;
+          }
 
-      const response = await axios.get('http://103.189.172.172:3000//enterprenuer/investors', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/enterprenuer/investors",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
-      const investorsList = response.data.investorsList;
-      console.log(investorsList);
+          const investorsList = response.data.investorsList;
+          console.log(investorsList);
 
-      // Select the container where investor cards will be appended
-      const container = document.querySelector('.investors-container');
+          // Select the container where investor cards will be appended
+          const container = document.querySelector(".investors-container");
 
-      // Iterate over each investor in the list and create a card
-      investorsList.forEach(investor => {
-        // Create investor card
-        const investorCard = document.createElement('div');
-        investorCard.classList.add('card', 'border', 'rounded-lg', 'shadow-lg', 'bg-white', 'mt-4');
+          // Iterate over each investor in the list and create a card
+          investorsList.forEach((investor) => {
+            // Create investor card
+            const investorCard = document.createElement("div");
+            investorCard.classList.add(
+              "card",
+              "border",
+              "rounded-lg",
+              "shadow-lg",
+              "bg-white",
+              "mt-4"
+            );
 
-        // Create card body
-        const investorCardBody = document.createElement('div');
-        investorCardBody.classList.add('card-body', 'p-5', 'border', 'border-primary');
+            // Create card body
+            const investorCardBody = document.createElement("div");
+            investorCardBody.classList.add(
+              "card-body",
+              "p-5",
+              "border",
+              "border-primary"
+            );
 
-        // Create content structure
-        investorCardBody.innerHTML = `
+            // Create content structure
+            investorCardBody.innerHTML = `
           <div class="d-flex align-items-center gap-4">
             <img
               id="profilePicture"
@@ -499,21 +516,16 @@
           </div>
         `;
 
-        // Append investor card body to card
-        investorCard.appendChild(investorCardBody);
+            // Append investor card body to card
+            investorCard.appendChild(investorCardBody);
 
-        // Append investor card to the container
-        container.appendChild(investorCard);
+            // Append investor card to the container
+            container.appendChild(investorCard);
+          });
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
       });
-
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  });
-</script>
-
-
-
-
+    </script>
   </body>
 </html>

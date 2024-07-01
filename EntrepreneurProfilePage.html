@@ -55,7 +55,6 @@
   </head>
   <body>
     <div class="container">
-      
       <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -125,9 +124,9 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html"
-                  >Log Out</a
-                >
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
@@ -630,7 +629,7 @@
           }
 
           const response = await axios.get(
-            "http://103.189.172.172:3000//enterprenuer/currentuser",
+            "http://103.189.172.172:3000/enterprenuer/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -699,11 +698,14 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000//check/role", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -781,7 +783,7 @@
             }
 
             const response = await axios.post(
-              "http://103.189.172.172:3000//businessidea/business-idea",
+              "http://103.189.172.172:3000/businessidea/business-idea",
               {
                 yourName,
                 companyName,
@@ -813,7 +815,7 @@
           }
 
           const response = await axios.get(
-            `http://103.189.172.172:3000//businessidea/business-idea${id}`,
+            `http://103.189.172.172:3000/businessidea/business-idea${id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`, // Replace with your actual auth token

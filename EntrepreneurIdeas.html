@@ -14,79 +14,83 @@
   </head>
   <body>
     <div class="container">
-     <!-- NavBar -->
-     <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#aboutFundnest">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#blogs">Blogs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Consultancy.html">Consult Us</a>
-            </li>
-            
-            <li class="nav-item" id="entrepreneurIdea" style="display: none">
-              <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
-            </li>
-            <!-- <li class="nav-item" id="investorIdea" style="display: none">
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">LOGO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#aboutFundnest">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blogs">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Consultancy.html">Consult Us</a>
+              </li>
+
+              <li class="nav-item" id="entrepreneurIdea" style="display: none">
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
+              </li>
+              <!-- <li class="nav-item" id="investorIdea" style="display: none">
               <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
             </li> -->
-            <li class="nav-item" id="investorlist" style="display: none">
-              <a class="nav-link" href="InvestorPane.html">Investor List</a>
-            </li>
-            <li class="nav-item" id="entrepreneurList" style="display: none">
-              <a class="nav-link" href="EntrepreneurPane.html"
-                >Entrepreneur List</a
+              <li class="nav-item" id="investorlist" style="display: none">
+                <a class="nav-link" href="InvestorPane.html">Investor List</a>
+              </li>
+              <li class="nav-item" id="entrepreneurList" style="display: none">
+                <a class="nav-link" href="EntrepreneurPane.html"
+                  >Entrepreneur List</a
+                >
+              </li>
+              <li class="nav-item" id="investorprofile" style="display: none">
+                <a class="nav-link" href="InvestorProfilePage.html"
+                  >Your Profile</a
+                >
+              </li>
+              <li
+                class="nav-item"
+                id="entrepreneurprofile"
+                style="display: none"
               >
-            </li>
-            <li class="nav-item" id="investorprofile" style="display: none">
-              <a class="nav-link" href="InvestorProfilePage.html"
-                >Your Profile</a
-              >
-            </li>
-            <li
-              class="nav-item"
-              id="entrepreneurprofile"
-              style="display: none"
-            >
-              <a class="nav-link" href="EntrepreneurProfilePage.html"
-                >Your Profile</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="loginLink" href="Login.html">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
-            </li>
-          </ul>
+                <a class="nav-link" href="EntrepreneurProfilePage.html"
+                  >Your Profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="loginLink" href="Login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
       <div class="Investor">
         <h1 class="head display-4">
@@ -306,11 +310,14 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000//check/role", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -378,7 +385,7 @@
           }
 
           const response = await axios.get(
-            "http://103.189.172.172:3000//businessidea/business-idea",
+            "http://103.189.172.172:3000/businessidea/business-idea",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

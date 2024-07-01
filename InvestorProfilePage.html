@@ -55,7 +55,6 @@
   </head>
   <body>
     <div class="container">
-
       <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -90,9 +89,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="Consultancy.html">Consult Us</a>
               </li>
-              
+
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
-                <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
               </li>
               <!-- <li class="nav-item" id="investorIdea" style="display: none">
                 <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
@@ -123,7 +124,9 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
@@ -438,9 +441,11 @@
                 </svg>
               </div>
 
-              <a href="EntrepreneurIdeas.html"><button class="btn btn-primary" style="width: 8rem">
-                Explore
-              </button></a>
+              <a href="EntrepreneurIdeas.html"
+                ><button class="btn btn-primary" style="width: 8rem">
+                  Explore
+                </button></a
+              >
             </div>
           </div>
         </div>
@@ -725,7 +730,7 @@
           }
 
           const response = await axios.get(
-            "http://103.189.172.172:3000//investor/currentuser",
+            "http://103.189.172.172:3000/investor/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -751,7 +756,8 @@
       function populateUserProfile(user) {
         document.getElementById("profileImage").src = `Images/Ellipse 1.png`; // Update with actual image URL
         document.getElementById("userName").textContent = user.currentUser.name;
-        document.getElementById("userEmail").textContent = user.currentUser.email;
+        document.getElementById("userEmail").textContent =
+          user.currentUser.email;
         document.getElementById("userRole").textContent = user.currentUser.role;
         document.getElementById("userDescription").textContent =
           user.currentUser.description; // Assuming description is part of user data
@@ -773,87 +779,89 @@
       });
     </script>
 
-<script>
-  function updateNavbar() {
-    const token = localStorage.getItem("token");
-    const loginLink = document.getElementById("loginLink");
-    const logoutLink = document.getElementById("logoutLink");
+    <script>
+      function updateNavbar() {
+        const token = localStorage.getItem("token");
+        const loginLink = document.getElementById("loginLink");
+        const logoutLink = document.getElementById("logoutLink");
 
-    if (token) {
-      loginLink.style.display = "none";
-      logoutLink.style.display = "block";
-    } else {
-      loginLink.style.display = "block";
-      logoutLink.style.display = "none";
-    }
-  }
+        if (token) {
+          loginLink.style.display = "none";
+          logoutLink.style.display = "block";
+        } else {
+          loginLink.style.display = "block";
+          logoutLink.style.display = "none";
+        }
+      }
 
-  updateNavbar();
+      updateNavbar();
 
-  // Function to check user type and update navigation items
-  async function updateUserNavigation(token) {
-    try {
-      const response = await axios.get("http://103.189.172.172:3000//check/role", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      // Function to check user type and update navigation items
+      async function updateUserNavigation(token) {
+        try {
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.status === 200) {
+            // console.log(response.data);
+            const userType = response.data.role;
+            // console.log(userType);
+            if (userType === "investor") {
+              document.getElementById("entrepreneurList").style.display =
+                "block";
+              document.getElementById("entrepreneurIdea").style.display =
+                "block";
+              document.getElementById("investorprofile").style.display =
+                "block";
+            } else if (userType === "enterprenuer") {
+              document.getElementById("investorlist").style.display = "block";
+              document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("entrepreneurprofile").style.display =
+                "block";
+            }
+          } else {
+            console.error("Failed to fetch user type:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+          updateUserNavigation(token);
+        }
       });
 
-      if (response.status === 200) {
-        // console.log(response.data);
-        const userType = response.data.role;
-        // console.log(userType);
-        if (userType === "investor") {
-          document.getElementById("entrepreneurList").style.display =
-            "block";
-          document.getElementById("entrepreneurIdea").style.display =
-            "block";
-          document.getElementById("investorprofile").style.display =
-            "block";
-        } else if (userType === "enterprenuer") {
-          document.getElementById("investorlist").style.display = "block";
-          document.getElementById("investorIdea").style.display = "block";
-          document.getElementById("entrepreneurprofile").style.display =
-            "block";
+      // Function to handle logout
+      async function handleLogout() {
+        try {
+          const response = await axios.post(
+            "https://fundnestbackend.onrender.com/auth/logout"
+          );
+          alert(response.data.message);
+          localStorage.removeItem("token");
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error("Logout error:", error);
+          alert("Logout failed. Please try again.");
         }
-      } else {
-        console.error("Failed to fetch user type:", response.statusText);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      updateUserNavigation(token);
-    }
-  });
-
-  // Function to handle logout
-  async function handleLogout() {
-    try {
-      const response = await axios.post(
-        "https://fundnestbackend.onrender.com/auth/logout"
-      );
-      alert(response.data.message);
-      localStorage.removeItem("token");
-      window.location.href = "index.html";
-    } catch (error) {
-      console.error("Logout error:", error);
-      alert("Logout failed. Please try again.");
-    }
-  }
-
-  // Add event listener to the logout link
-  document
-    .getElementById("logoutLink")
-    .addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default link behavior
-      handleLogout(); // Call the logout function when link is clicked
-    });
-</script>
-    
+      // Add event listener to the logout link
+      document
+        .getElementById("logoutLink")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          handleLogout(); // Call the logout function when link is clicked
+        });
+    </script>
   </body>
 </html>

@@ -14,7 +14,6 @@
   </head>
   <body>
     <div class="container">
-
       <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -49,9 +48,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="Consultancy.html">Consult Us</a>
               </li>
-              
+
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
-                <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
               </li>
               <!-- <li class="nav-item" id="investorIdea" style="display: none">
                 <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
@@ -82,7 +83,9 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
@@ -114,15 +117,15 @@
             alt="User Avatar"
           />
           <div class="ml-4">
-            <h2 class="fw-semibold text-primary" id="entrepreneurName">James</h2>
+            <h2 class="fw-semibold text-primary" id="entrepreneurName">
+              James
+            </h2>
             <p class="text-muted small">Active Now</p>
           </div>
         </div>
 
         <div class="flex-grow-1 overflow-auto p-4">
-          <div id="messageContainer">
-          
-          </div>
+          <div id="messageContainer"></div>
 
           <!-- <div class="d-flex justify-content-end mb-4">
             <div
@@ -187,7 +190,6 @@
             </svg>
           </button>
         </div>
-
       </div>
     </div>
 
@@ -218,11 +220,14 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000//check/role", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -280,163 +285,162 @@
         });
     </script>
 
-<script>
-   
-
-
-
-  function getQueryParams() {
-    const params = new URLSearchParams(window.location.search);
-    return Object.fromEntries(params.entries());
-  }
-  const params = getQueryParams();
-  const receiverId = params.id;
-  const investorId = localStorage.getItem("user");
-    const roomId = investorId + "" + receiverId;
-    // console.log("vf",roomId);
-    
-
-
-
-  // Fetch entrepreneur details from server
-  async function fetchEntrepreneurDetails() {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("Token not found");
-        return;
+    <script>
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return Object.fromEntries(params.entries());
       }
-
       const params = getQueryParams();
-      const entrepreneurId = params.id;
-      // console.log(entrepreneurId);
+      const receiverId = params.id;
+      const investorId = localStorage.getItem("user");
+      const roomId = investorId + "" + receiverId;
+      // console.log("vf",roomId);
 
-      const response = await axios.get(
-        `http://103.189.172.172:3000//investor/enterprenuer/${entrepreneurId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      // Fetch entrepreneur details from server
+      async function fetchEntrepreneurDetails() {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            console.error("Token not found");
+            return;
+          }
+
+          const params = getQueryParams();
+          const entrepreneurId = params.id;
+          // console.log(entrepreneurId);
+
+          const response = await axios.get(
+            `http://103.189.172.172:3000/investor/enterprenuer/${entrepreneurId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.status !== 200) {
+            throw new Error(
+              response.data.message || "Failed to fetch entrepreneur details"
+            );
+          }
+
+          const { entrepreneur } = response.data;
+          document.getElementById("entrepreneurName").textContent =
+            entrepreneur.name;
+        } catch (error) {
+          console.error("Error fetching entrepreneur details:", error.message);
+          alert(
+            "Failed to fetch entrepreneur details. Please try again later."
+          );
         }
-      );
-
-      if (response.status !== 200) {
-        throw new Error(response.data.message || 'Failed to fetch entrepreneur details');
       }
 
-      const { entrepreneur } = response.data;
-      document.getElementById('entrepreneurName').textContent = entrepreneur.name;
-    } catch (error) {
-      console.error('Error fetching entrepreneur details:', error.message);
-      alert('Failed to fetch entrepreneur details. Please try again later.');
-    }
-  }
+      // Function to fetch messages
+      async function fetchMessages() {
+        const params = getQueryParams();
+        const entrepreneurId = params.id;
 
-  // Function to fetch messages
-  async function fetchMessages() {
-    const params = getQueryParams();
-    const entrepreneurId = params.id;
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("Token not found");
-      return;
-    }
-
-    try {
-      const response = await axios.get(
-        `http://103.189.172.172:3000//enterprenuer/${roomId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("Token not found");
+          return;
         }
-      );
 
-      if (response.status === 200) {
-        displayMessages(response.data.messages);
-      } else {
-        console.error(`Error: ${response.data.message}`);
+        try {
+          const response = await axios.get(
+            `http://103.189.172.172:3000/enterprenuer/${roomId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (response.status === 200) {
+            displayMessages(response.data.messages);
+          } else {
+            console.error(`Error: ${response.data.message}`);
+          }
+        } catch (error) {
+          console.error("Error fetching messages:", error);
+        }
       }
-    } catch (error) {
-      console.error("Error fetching messages:", error);
-    }
-  }
 
-  // Function to display messages
-  function displayMessages(messages) {
-    const messageContainer = document.getElementById("messageContainer");
-    messageContainer.innerHTML = "";
+      // Function to display messages
+      function displayMessages(messages) {
+        const messageContainer = document.getElementById("messageContainer");
+        messageContainer.innerHTML = "";
 
-    messages.forEach((message) => {
-      const messageElement = `
+        messages.forEach((message) => {
+          const messageElement = `
         <div>
-          <div class="d-flex ${message.senderId == investorId ? 'justify-content-end' : 'justify-content-start '} mb-4 ">
+          <div class="d-flex ${
+            message.senderId == investorId
+              ? "justify-content-end"
+              : "justify-content-start "
+          } mb-4 ">
             <div style="margin-top: 5rem; max-width: 40rem">
-              <div class=" ${message.senderId == investorId ? 'bg-dark' : 'bg-primary '} text-white px-3 py-1 rounded shadow-sm">
+              <div class=" ${
+                message.senderId == investorId ? "bg-dark" : "bg-primary "
+              } text-white px-3 py-1 rounded shadow-sm">
                 <p>${message.message}</p>
               </div>
             </div>
 
         </div>`;
 
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = messageElement;
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = messageElement;
 
-      while (tempDiv.firstChild) {
-        messageContainer.appendChild(tempDiv.firstChild);
+          while (tempDiv.firstChild) {
+            messageContainer.appendChild(tempDiv.firstChild);
+          }
+        });
       }
-    });
-  }
 
-  // Event listener for the send button
-  document.getElementById("sendButton").addEventListener("click", async () => {
-    const messageInput = document.getElementById("messageInput");
-    const message = messageInput.value.trim();
-    
+      // Event listener for the send button
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", async () => {
+          const messageInput = document.getElementById("messageInput");
+          const message = messageInput.value.trim();
 
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("Token not found");
-      return;
-    }
+          const token = localStorage.getItem("token");
+          if (!token) {
+            console.error("Token not found");
+            return;
+          }
 
-    // console.log(investorId);
-    if (!investorId) {
-      console.error("Entrepreneur not found");
-      return;
-    }
+          // console.log(investorId);
+          if (!investorId) {
+            console.error("Entrepreneur not found");
+            return;
+          }
 
-    
-    try {
-      const response = await axios.post(
-        `http://103.189.172.172:3000//enterprenuer/send-message/${investorId}`,
-        { message, receiverId, roomId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+          try {
+            const response = await axios.post(
+              `http://103.189.172.172:3000/enterprenuer/send-message/${investorId}`,
+              { message, receiverId, roomId },
+              { headers: { Authorization: `Bearer ${token}` } }
+            );
 
-      if (response.status === 200) {
-        messageInput.value = "";
-        fetchMessages(); // Refresh messages after sending
-      } else {
-        alert(`Error: ${response.data.message}`);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred while sending the message.");
-    }
-  });
+            if (response.status === 200) {
+              messageInput.value = "";
+              fetchMessages(); // Refresh messages after sending
+            } else {
+              alert(`Error: ${response.data.message}`);
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while sending the message.");
+          }
+        });
 
-  // Fetch entrepreneur details and messages on page load
-  window.onload = () => {
-    fetchEntrepreneurDetails();
-    fetchMessages();
-  };
-</script>
-
-
-
-
-
+      // Fetch entrepreneur details and messages on page load
+      window.onload = () => {
+        fetchEntrepreneurDetails();
+        fetchMessages();
+      };
+    </script>
   </body>
 </html>

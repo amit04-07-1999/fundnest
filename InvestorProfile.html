@@ -14,7 +14,6 @@
   </head>
   <body>
     <div class="container">
-
       <!-- NavBar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -49,9 +48,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="Consultancy.html">Consult Us</a>
               </li>
-              
+
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
-                <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
               </li>
               <!-- <li class="nav-item" id="investorIdea" style="display: none">
                 <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
@@ -82,120 +83,168 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-<div>
-      <div
-        class="d-flex flex-column align-items-center bg-primary text-white p-5 rounded-3 shadow-lg mx-auto"
-        style="
-          max-width: 100%;
-          height: auto;
-          background: linear-gradient(to bottom, #1753ef, #0d3089);
-        "
-      >
-        <img
-          class="rounded-circle border border-white"
-          src="Images/Ellipse 6.png"
-          alt="Profile Picture"
-          style="width: 10rem; height: 10rem; border-width: 4px"
-        />
-        <h2 class="mt-4"id="investorCompany"></h2>
-        <span
-          class="mt-2 px-5 py-2 bg-white text-primary rounded font-weight-medium"
-          style="font-size: 1rem"
-          id="investorRole"
-          ></span
+      <div>
+        <div
+          class="d-flex flex-column align-items-center bg-primary text-white p-5 rounded-3 shadow-lg mx-auto"
+          style="
+            max-width: 100%;
+            height: auto;
+            background: linear-gradient(to bottom, #1753ef, #0d3089);
+          "
         >
-        <p class="mt-4 text-center" style="font-size: 1.12rem" id="investorName">
-          ( Founder and Chief Executive at ABC Firms )
-        </p>
-      </div>
-      <div class="d-flex flex-column align-items-center mt-3">
-        <div class="row justify-content-center" style="width: -webkit-fill-available;">
-          <div class="col-12 col-md-6 mt-3">
-            <button
-              class="btn btn-outline-danger w-100"
-              style="height: 3.1rem; "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-megaphone-fill"
-                viewBox="0 0 16 16"
+          <img
+            class="rounded-circle border border-white"
+            src="Images/Ellipse 6.png"
+            alt="Profile Picture"
+            style="width: 10rem; height: 10rem; border-width: 4px"
+          />
+          <h2 class="mt-4" id="investorCompany"></h2>
+          <span
+            class="mt-2 px-5 py-2 bg-white text-primary rounded font-weight-medium"
+            style="font-size: 1rem"
+            id="investorRole"
+          ></span>
+          <p
+            class="mt-4 text-center"
+            style="font-size: 1.12rem"
+            id="investorName"
+          >
+            ( Founder and Chief Executive at ABC Firms )
+          </p>
+        </div>
+        <div class="d-flex flex-column align-items-center mt-3">
+          <div
+            class="row justify-content-center"
+            style="width: -webkit-fill-available"
+          >
+            <div class="col-12 col-md-6 mt-3">
+              <button
+                class="btn btn-outline-danger w-100"
+                style="height: 3.1rem"
               >
-                <path
-                  d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06"
-                />
-              </svg>
-              Express Interest
-            </button>
-          </div>
-          <div class="col-12 col-md-6 mt-3">
-           <a href="#" id="investorID"> <button
-              class="btn btn-outline-primary w-100"
-              style="height: 3.1rem;"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-messenger"
-                viewBox="0 0 16 16"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-megaphone-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06"
+                  />
+                </svg>
+                Express Interest
+              </button>
+            </div>
+            <div class="col-12 col-md-6 mt-3">
+              <a href="#" id="investorID">
+                <button
+                  class="btn btn-outline-primary w-100"
+                  style="height: 3.1rem"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-messenger"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"
+                    />
+                  </svg>
+                  Message
+                </button></a
               >
-                <path
-                  d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"
-                />
-              </svg>
-              Message
-            </button></a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="align-items-center" style="margin-top: 5rem;">
-        <div class="row p-3">
-          <div class="col-6 text-end text-primary">
-            <p style="text-align: center;"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" fill="currentColor" class="bi bi-file-earmark-bar-graph-fill" viewBox="0 0 16 16">
-              <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m.5 10v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5m-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5z"/>
-            </svg> &nbsp; Worked With</p>
+        <div class="align-items-center" style="margin-top: 5rem">
+          <div class="row p-3">
+            <div class="col-6 text-end text-primary">
+              <p style="text-align: center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-file-earmark-bar-graph-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m.5 10v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5m-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5z"
+                  />
+                </svg>
+                &nbsp; Worked With
+              </p>
+            </div>
+            <div class="col-6">
+              <p style="" id="investorCompanyname">: ABC Firm</p>
+            </div>
           </div>
-          <div class="col-6 ">
-            <p style="" id="investorCompanyname">: ABC Firm</p>
+          <div class="row p-3">
+            <div class="col-6 text-end text-primary">
+              <p style="text-align: center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-mortarboard-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"
+                  />
+                  <path
+                    d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"
+                  /></svg
+                >&nbsp;&nbsp;&nbsp;Education
+              </p>
+            </div>
+            <div class="col-6">
+              <p style="" id="investorEducationdetails">
+                : Master’s Degree, Harvard University
+              </p>
+            </div>
+          </div>
+          <div class="row p-3">
+            <div class="col-6 text-end text-primary">
+              <p style="text-align: center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-star-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                  /></svg
+                >&nbsp; Experience
+              </p>
+            </div>
+            <div class="col-6">
+              <p style="" id="investorExperience">:</p>
+            </div>
           </div>
         </div>
-        <div class="row p-3 ">
-          <div class="col-6 text-end text-primary">
-            <p style="text-align: center;"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
-              <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
-              <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
-            </svg>&nbsp;&nbsp;&nbsp;Education</p>
-          </div>
-          <div class="col-6">
-            <p style="" id="investorEducationdetails">: Master’s Degree, Harvard University</p>
-          </div>
-        </div>
-        <div class="row p-3">
-          <div class="col-6 text-end text-primary">
-            <p style="text-align: center;"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>&nbsp; Experience</p>
-          </div>
-          <div class="col-6">
-            <p style="" id="investorExperience">:</p>
-          </div>
+        <div class="mt-5">
+          <p id="investorDescription"></p>
         </div>
       </div>
-      <div class="mt-5">
-        <p id="investorDescription"></p>
-      </div>
-    </div>
 
       <div class="Investor">
         <h1 class="head display-4">
@@ -408,7 +457,6 @@
       </div>
     </div>
 
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -436,11 +484,14 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000//check/role", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          const response = await axios.get(
+            "http://103.189.172.172:3000/check/role",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -500,54 +551,60 @@
 
     <script>
       function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return Object.fromEntries(params.entries());
-        }
+        const params = new URLSearchParams(window.location.search);
+        return Object.fromEntries(params.entries());
+      }
       // Fetch investor details from server
       async function fetchInvestorDetails() {
-          try {
-              const token = localStorage.getItem("token");
-              if (!token) {
-                  console.error("Token not found");
-                  return;
-              }
-
-              
-
-  
-        const params = getQueryParams();
-            const investorId = params.id;
-// console.log(investorId);
-              const response = await axios.get(`http://103.189.172.172:3000//enterprenuer/investor/${investorId}`, {
-                  headers: {
-                      Authorization: `Bearer ${token}`
-                  }
-              });
-  console.log(response);
-              const data = response.data;
-  
-              if (response.status !== 200) {
-                  throw new Error(data.message || 'Failed to fetch investor details');
-              }
-  
-              const { investor } = data;
-              document.getElementById('investorName').textContent = investor.name;
-              document.getElementById('investorRole').textContent = investor.role;
-              document.getElementById('investorEducationdetails').textContent = investor.educationdetails;
-              document.getElementById('investorCompanyname').textContent = investor.companyname;
-              document.getElementById('investorCompany').textContent = investor.companyname;
-              document.getElementById('investorDescription').textContent = investor.description;
-              document.getElementById('investorExperience').textContent = investor.experience;
-              document.getElementById('investorID').href = `EntrepreneurChatBox.html?id=${investor._id}`
-          } catch (error) {
-              console.error('Error fetching investor details:', error.message);
-              // alert('Failed to fetch investor details. Please try again later.');
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            console.error("Token not found");
+            return;
           }
+
+          const params = getQueryParams();
+          const investorId = params.id;
+          // console.log(investorId);
+          const response = await axios.get(
+            `http://103.189.172.172:3000/enterprenuer/investor/${investorId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log(response);
+          const data = response.data;
+
+          if (response.status !== 200) {
+            throw new Error(data.message || "Failed to fetch investor details");
+          }
+
+          const { investor } = data;
+          document.getElementById("investorName").textContent = investor.name;
+          document.getElementById("investorRole").textContent = investor.role;
+          document.getElementById("investorEducationdetails").textContent =
+            investor.educationdetails;
+          document.getElementById("investorCompanyname").textContent =
+            investor.companyname;
+          document.getElementById("investorCompany").textContent =
+            investor.companyname;
+          document.getElementById("investorDescription").textContent =
+            investor.description;
+          document.getElementById("investorExperience").textContent =
+            investor.experience;
+          document.getElementById(
+            "investorID"
+          ).href = `EntrepreneurChatBox.html?id=${investor._id}`;
+        } catch (error) {
+          console.error("Error fetching investor details:", error.message);
+          // alert('Failed to fetch investor details. Please try again later.');
+        }
       }
-  
+
       // Call fetchInvestorDetails when page loads
       window.onload = fetchInvestorDetails;
-  </script>
-    
+    </script>
   </body>
 </html>
