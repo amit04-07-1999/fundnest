@@ -16,7 +16,7 @@
     <div class="container">
 
       <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">LOGO</a>
           <button
@@ -46,9 +46,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="Consultancy.html">Consult Us</a>
+              </li>
               
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
                 <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
@@ -218,7 +218,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000/check/role", {
+          const response = await axios.get("http://localhost:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -312,7 +312,7 @@
       // console.log(entrepreneurId);
 
       const response = await axios.get(
-        `http://103.189.172.172:3000/investor/enterprenuer/${entrepreneurId}`,
+        `http://localhost:3000/investor/enterprenuer/${entrepreneurId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -345,7 +345,7 @@
 
     try {
       const response = await axios.get(
-        `http://103.189.172.172:3000/enterprenuer/${roomId}`,
+        `http://localhost:3000/enterprenuer/${roomId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -410,7 +410,7 @@
     
     try {
       const response = await axios.post(
-        `http://103.189.172.172:3000/enterprenuer/send-message/${investorId}`,
+        `http://localhost:3000/enterprenuer/send-message/${investorId}`,
         { message, receiverId, roomId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

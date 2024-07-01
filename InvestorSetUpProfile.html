@@ -28,7 +28,7 @@
     <div class="container">
 
      <!-- NavBar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">LOGO</a>
         <button
@@ -58,9 +58,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Resources</a>
-            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="Consultancy.html">Consult Us</a>
+            </li>
             
             <li class="nav-item" id="entrepreneurIdea" style="display: none">
               <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
@@ -341,7 +341,7 @@
               }
   
               const response = await axios.get(
-                  "http://103.189.172.172:3000/investor/currentuser",
+                  "http://localhost:3000/investor/currentuser",
                   {
                       headers: {
                           Authorization: `Bearer ${token}`,
@@ -405,7 +405,7 @@
                   return;
               }
   
-              const response = await axios.patch('http://103.189.172.172:3000/investor/editprofile', formData, {
+              const response = await axios.patch('http://localhost:3000/investor/editprofile', formData, {
                   headers: {
                       Authorization: `Bearer ${token}`,
                   },
@@ -438,7 +438,7 @@
         }
 
         try {
-            const response = await axios.delete('http://103.189.172.172:3000/investor/deleteuser', {
+            const response = await axios.delete('http://localhost:3000/investor/deleteuser', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -481,7 +481,7 @@
   // Function to check user type and update navigation items
   async function updateUserNavigation(token) {
     try {
-      const response = await axios.get("http://103.189.172.172:3000/check/role", {
+      const response = await axios.get("http://localhost:3000/check/role", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

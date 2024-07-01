@@ -55,7 +55,9 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">LOGO</a>
           <button
@@ -77,23 +79,26 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#aboutFundnest">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">News</a>
+                <a class="nav-link" href="#blogs">Blogs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
+                <a class="nav-link" href="Consultancy.html">Consult Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Book Online</a>
+
+              <li class="nav-item" id="entrepreneurIdea" style="display: none">
+                <a class="nav-link" href="EntrepreneurIdeas.html"
+                  >Entrepreneur Ideas</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-              </li>
+              <!-- <li class="nav-item" id="investorIdea" style="display: none">
+          <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
+        </li> -->
               <li class="nav-item" id="investorlist" style="display: none">
                 <a class="nav-link" href="InvestorPane.html">Investor List</a>
               </li>
@@ -120,7 +125,9 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="logoutLink" href="index.html">Log Out</a>
+                <a class="nav-link" id="logoutLink" href="index.html"
+                  >Log Out</a
+                >
               </li>
             </ul>
           </div>
@@ -623,7 +630,7 @@
           }
 
           const response = await axios.get(
-            "http://103.189.172.172:3000/enterprenuer/currentuser",
+            "http://localhost:3000/enterprenuer/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -692,7 +699,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000/check/role", {
+          const response = await axios.get("http://localhost:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -774,7 +781,7 @@
             }
 
             const response = await axios.post(
-              "http://103.189.172.172:3000/businessidea/business-idea",
+              "http://localhost:3000/businessidea/business-idea",
               {
                 yourName,
                 companyName,
@@ -806,7 +813,7 @@
           }
 
           const response = await axios.get(
-            `http://103.189.172.172:3000/businessidea/business-idea${id}`,
+            `http://localhost:3000/businessidea/business-idea${id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`, // Replace with your actual auth token

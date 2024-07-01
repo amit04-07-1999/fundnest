@@ -16,7 +16,7 @@
     <div class="container">
 
       <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">LOGO</a>
           <button
@@ -46,9 +46,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Resources</a>
-              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="Consultancy.html">Consult Us</a>
+              </li>
               
               <li class="nav-item" id="entrepreneurIdea" style="display: none">
                 <a class="nav-link" href="EntrepreneurIdeas.html">Entrepreneur Ideas</a>
@@ -88,7 +88,6 @@
           </div>
         </div>
       </nav>
-
 <div>
       <div
         class="d-flex flex-column align-items-center bg-primary text-white p-5 rounded-3 shadow-lg mx-auto"
@@ -437,7 +436,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://103.189.172.172:3000/check/role", {
+          const response = await axios.get("http://localhost:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -519,7 +518,7 @@
         const params = getQueryParams();
             const investorId = params.id;
 // console.log(investorId);
-              const response = await axios.get(`http://103.189.172.172:3000/enterprenuer/investor/${investorId}`, {
+              const response = await axios.get(`http://localhost:3000/enterprenuer/investor/${investorId}`, {
                   headers: {
                       Authorization: `Bearer ${token}`
                   }
