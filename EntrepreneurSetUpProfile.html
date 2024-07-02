@@ -517,7 +517,7 @@
   async function handleLogout() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/logout"
+        "http://103.189.172.172:3000/auth/logout"
       );
       alert(response.data.message);
       localStorage.removeItem("token");

@@ -1284,7 +1284,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            "http://103.189.172.172:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -1440,7 +1440,7 @@
               return;
             }
             const response = await axios.post(
-              "http://localhost:3000/appointments/appointment",
+              "http://103.189.172.172:3000/appointments/appointment",
               {
                 customerName,
                 date,
@@ -1468,7 +1468,7 @@
               handler: function (response) {
                 alert(
                   "Payment successful."
-                    // response.razorpay_payment_id
+                  // response.razorpay_payment_id
                 );
                 alert("Appointment booked successfully!");
                 window.location.reload();
@@ -1494,6 +1494,5 @@
         }
       });
     </script>
-
   </body>
 </html>
