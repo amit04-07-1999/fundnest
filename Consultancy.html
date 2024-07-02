@@ -151,24 +151,13 @@
                 </div>
               </div>
               <table class="table table-bordered">
-                <thead>
-                  <!-- <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-              </tr> -->
-                </thead>
                 <tbody id="calendar-body"></tbody>
               </table>
             </div>
             <div class="mt-3">
               <h3>Platform</h3>
               <div class="d-flex justify-content-between">
-                <div>
+                <div onclick="displayPlatform('Google Meet')">
                   <div
                     style="
                       border: 1px solid rgb(12, 102, 211);
@@ -187,7 +176,7 @@
                     Meet
                   </p>
                 </div>
-                <div>
+                <div onclick="displayPlatform('Zoom')">
                   <div
                     style="
                       border: 1px solid rgb(12, 102, 211);
@@ -206,7 +195,7 @@
                     Zoom
                   </p>
                 </div>
-                <div class="">
+                <div onclick="displayPlatform('On Call')">
                   <div
                     style="
                       border: 1px solid rgb(12, 102, 211);
@@ -238,7 +227,7 @@
                     Call
                   </p>
                 </div>
-                <div class="">
+                <div onclick="displayPlatform('Face to Face')">
                   <div
                     style="
                       border: 1px solid rgb(12, 102, 211);
@@ -275,19 +264,25 @@
           </div>
           <div style="padding: 30px">
             <div class="flex-1 p-4">
-              <div class="d-flex align-items-center mb-4">
-                <img
-                  src="Images/Ellipse 1.png"
-                  alt="User Avatar"
-                  class="rounded-circle me-4"
-                  style="height: 3rem"
-                />
+              <div
+                class="d-flex align-items-center mb-4"
+                style="column-gap: 1rem"
+              >
                 <input
                   type="text"
                   placeholder="Enter Name Here"
-                  class="form-control flex-fill"
+                  class="form-control"
+                  id="nameInput"
                 />
+                <button
+                  class="bg-primary text-white border-0 fw-bold rounded"
+                  style="width: 5rem; height: 2.3rem"
+                  id="sendButton"
+                >
+                  Send
+                </button>
               </div>
+
               <div
                 class="row row-cols-2 g-3"
                 style="column-gap: 1rem; margin-left: 3rem"
@@ -295,62 +290,72 @@
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('9-10 AM')"
                 >
-                  1-2 Pm
+                  9-10 AM
+                </button>
+                <button
+                  class="btn btn-outline-primary col"
+                  style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('10-11 AM')"
+                >
+                  10-11 AM
                 </button>
                 <button
                   class="btn btn-outline-primary col p-3"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('11-12 PM')"
                 >
-                  1-2 Pm
+                  11-12 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('12-1 PM')"
                 >
-                  1-2 Pm
+                  12-1 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('1-2 PM')"
                 >
-                  1-2 Pm
+                  1-2 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('2-3 PM')"
                 >
-                  1-2 Pm
+                  2-3 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('3-4 PM')"
                 >
-                  1-2 Pm
+                  3-4 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('4-5 PM')"
                 >
-                  1-2 Pm
+                  4-5 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('5-6 PM')"
                 >
-                  1-2 Pm
-                </button>
-                <button
-                  class="btn btn-primary text-white col"
-                  style="width: 16rem; height: 4rem"
-                >
-                  1-2 Pm
+                  5-6 PM
                 </button>
                 <button
                   class="btn btn-outline-primary col"
                   style="width: 16rem; height: 4rem"
+                  onclick="displayTimeSlot('6-7 PM')"
                 >
-                  1-2 Pm
+                  6-7 PM
                 </button>
               </div>
             </div>
@@ -365,21 +370,28 @@
             style="border: 1px solid #1753ef; width: 50rem"
           >
             <div>
-              <div style="padding: 3vh" class="fs-5">Date</div>
-              <p class="text-primary fs-5">22 March 2024</p>
+              <div style="padding: 3vh" class="fs-5">Name</div>
+              <div id="outputName"></div>
+            </div>
+            <div>
+              <div class="date-output-title fs-5" style="padding: 3vh">
+                Date
+              </div>
+              <div id="outputDate"></div>
             </div>
             <div>
               <div style="padding: 3vh" class="fs-5">Time Slot</div>
-              <p class="text-primary fs-5">12pm - 1pm</p>
+              <div id="outputTime"></div>
             </div>
             <div>
               <div style="padding: 3vh" class="fs-5">Platform</div>
-              <p class="text-primary fs-5">Google Meet</p>
+              <div id="outputPlatform"></div>
             </div>
           </div>
           <button
             class="bg-primary text-white border-0 fw-bold rounded"
             style="width: 15rem; font-size: x-large"
+            id="bookButton"
           >
             Book Meeting
           </button>
@@ -421,12 +433,14 @@
                 <button class="btn btn-outline-primary">Skill 2</button>
                 <button class="btn btn-outline-primary">Skill 3</button>
               </div>
-              <button
-                class="btn bg-primary text-primary-foreground"
-                style="width: 17rem"
+              <a href="ConsultancyProfile.html"
+                ><button
+                  class="btn bg-primary text-primary-foreground text-white"
+                  style="width: 17rem"
+                >
+                  See Profile
+                </button></a
               >
-                See More
-              </button>
             </div>
           </div>
           <div
@@ -459,12 +473,14 @@
                 <button class="btn btn-outline-primary">Skill 2</button>
                 <button class="btn btn-outline-primary">Skill 3</button>
               </div>
-              <button
-                class="btn bg-primary text-primary-foreground"
-                style="width: 17rem"
+              <a href="ConsultancyProfile.html"
+                ><button
+                  class="btn bg-primary text-primary-foreground text-white"
+                  style="width: 17rem"
+                >
+                  See Profile
+                </button></a
               >
-                See More
-              </button>
             </div>
           </div>
           <div
@@ -497,12 +513,14 @@
                 <button class="btn btn-outline-primary">Skill 2</button>
                 <button class="btn btn-outline-primary">Skill 3</button>
               </div>
-              <button
-                class="btn bg-primary text-primary-foreground"
-                style="width: 17rem"
+              <a href="ConsultancyProfile.html"
+                ><button
+                  class="btn bg-primary text-primary-foreground text-white"
+                  style="width: 17rem"
+                >
+                  See Profile
+                </button></a
               >
-                See More
-              </button>
             </div>
           </div>
         </div>
@@ -1198,6 +1216,7 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
@@ -1265,7 +1284,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "https://fundnestbackend.onrender.com/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -1286,12 +1305,12 @@
     </script>
 
     <script>
-      // script.js
       document.addEventListener("DOMContentLoaded", function () {
         const calendarBody = document.getElementById("calendar-body");
         const monthYear = document.getElementById("month-year");
         const prevButton = document.getElementById("prev");
         const nextButton = document.getElementById("next");
+        const outputDate = document.getElementById("outputDate");
 
         let currentDate = new Date();
 
@@ -1314,22 +1333,35 @@
           // Get the day of the week the first day of the month falls on
           const startDay = firstDay.getDay();
 
+          // Create a new row for the calendar
+          let row = document.createElement("tr");
+
           // Add empty cells for days of the previous month
           for (let i = 0; i < startDay; i++) {
             const cell = document.createElement("td");
-            calendarBody.appendChild(cell);
+            row.appendChild(cell);
           }
 
           // Add cells for each day of the month
           for (let i = 1; i <= lastDay.getDate(); i++) {
             const cell = document.createElement("td");
             cell.textContent = i;
-            calendarBody.appendChild(cell);
+            cell.classList.add("date-cell");
+            cell.addEventListener("click", function () {
+              displayDate(new Date(year, month, i));
+            });
+            row.appendChild(cell);
 
+            // If the row is complete, append it to the calendar body and create a new row
             if ((startDay + i) % 7 === 0) {
-              const row = document.createElement("tr");
               calendarBody.appendChild(row);
+              row = document.createElement("tr");
             }
+          }
+
+          // Append the last row if it contains cells
+          if (row.children.length > 0) {
+            calendarBody.appendChild(row);
           }
 
           // Add empty cells for days of the next month
@@ -1337,9 +1369,21 @@
           if (endDay !== 0) {
             for (let i = endDay; i < 7; i++) {
               const cell = document.createElement("td");
-              calendarBody.appendChild(cell);
+              row.appendChild(cell);
             }
+            calendarBody.appendChild(row);
           }
+        }
+
+        function displayDate(date) {
+          outputDate.innerHTML = `<p class="date-output-value text-primary fs-5">${date.toLocaleDateString(
+            "default",
+            {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            }
+          )}</p>`;
         }
 
         // Handle previous month button click
@@ -1358,5 +1402,98 @@
         renderCalendar(currentDate);
       });
     </script>
+
+    <script>
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", function () {
+          var name = document.getElementById("nameInput").value;
+          if (name) {
+            var outputDiv = document.getElementById("outputName");
+            outputDiv.innerHTML = `<p class="text-primary fs-5">${name}</p>`;
+          }
+        });
+
+      function displayTimeSlot(timeSlot) {
+        var outputTime = document.getElementById("outputTime");
+        outputTime.innerHTML = `<p class="text-primary fs-5">${timeSlot}</p>`;
+      }
+      function displayPlatform(platform) {
+        var outputPlatform = document.getElementById("outputPlatform");
+        outputPlatform.innerHTML = `<p class="text-primary fs-5">${platform}</p>`;
+      }
+    </script>
+
+    <script>
+      // Add event listener to the book button
+      bookButton.addEventListener("click", async function () {
+        const customerName = document.getElementById("outputName").textContent;
+        const date = document.getElementById("outputDate").textContent;
+        const timeslot = document.getElementById("outputTime").textContent;
+        const platform = document.getElementById("outputPlatform").textContent;
+
+        if (customerName && date && timeslot && platform) {
+          try {
+            const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+            if (!token) {
+              console.error("Token not found");
+              return;
+            }
+            const response = await axios.post(
+              "http://localhost:3000/appointments/appointment",
+              {
+                customerName,
+                date,
+                timeslot,
+                platform,
+                amount: 1500, // Example amount in INR
+                currency: "INR",
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            const { razorpayOrder } = response.data;
+
+            // Razorpay payment options
+            var options = {
+              key: "rzp_test_n5oTuMseyDclhS", // Replace with your Razorpay key ID
+              amount: razorpayOrder.amount,
+              currency: razorpayOrder.currency,
+              name: "Your Company Name",
+              description: "Appointment Booking",
+              order_id: razorpayOrder.id,
+              handler: function (response) {
+                alert(
+                  "Payment successful."
+                    // response.razorpay_payment_id
+                );
+                alert("Appointment booked successfully!");
+                window.location.reload();
+              },
+
+              prefill: {
+                name: customerName,
+                email: "customer@example.com",
+                contact: "9999999999",
+              },
+              theme: {
+                color: "#3399cc",
+              },
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+          } catch (error) {
+            console.error("Error booking appointment:", error);
+            alert("Failed to book appointment.");
+          }
+        } else {
+          alert("Please fill in all details before booking.");
+        }
+      });
+    </script>
+
   </body>
 </html>

@@ -83,9 +83,9 @@
                 <a class="nav-link" id="loginLink" href="Login.html">Login</a>
               </li>
               <li class="nav-item">
-                <button class="nav-link" id="logoutLink" href="index.html"
-                  >Log Out</button
-                >
+                <button class="nav-link" id="logoutLink" href="index.html">
+                  Log Out
+                </button>
               </li>
             </ul>
           </div>
@@ -142,7 +142,7 @@
           >
         </div>
       </div>
-      
+
       <!-- <div class="Investor">
         <h1 class="head display-4">
           OUR <span style="color: #1753ef">INVESTORS</span>
@@ -1002,7 +1002,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "https://fundnestbackend.onrender.com/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");

@@ -523,7 +523,7 @@
   async function handleLogout() {
     try {
       const response = await axios.post(
-        "https://fundnestbackend.onrender.com/auth/logout"
+        "http://localhost:3000/auth/logout"
       );
       alert(response.data.message);
       localStorage.removeItem("token");
