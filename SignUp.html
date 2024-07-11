@@ -148,16 +148,13 @@
             return;
           }
 
-          const response = await fetch(
-            "http://103.189.172.172:3000/auth/signup",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name, email, password, role }),
-            }
-          );
+          const response = await fetch("http://localhost:3000/auth/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, password, role }),
+          });
 
           const data = await response.json();
 
