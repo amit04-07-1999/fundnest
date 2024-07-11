@@ -311,7 +311,7 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get("http://localhost:3000/check/role", {
+          const response = await axios.get("http://http://103.189.172.172:3000/check/role", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -353,7 +353,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://localhost:3000/auth/logout"
+            "http://http://103.189.172.172:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -393,7 +393,7 @@
         const params = getQueryParams();
             const EntrepreneurId = params.id;
 // console.log(investorId);
-              const response = await axios.get(`http://localhost:3000/investor/enterprenuer/${EntrepreneurId}`, {
+              const response = await axios.get(`http://http://103.189.172.172:3000/investor/enterprenuer/${EntrepreneurId}`, {
                   headers: {
                       Authorization: `Bearer ${token}`
                   }
