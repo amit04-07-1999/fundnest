@@ -629,7 +629,7 @@
           }
 
           const response = await axios.get(
-            "http://http://103.189.172.172:3000/enterprenuer/currentuser",
+            "http://103.189.172.172:3000/enterprenuer/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -699,7 +699,7 @@
       async function updateUserNavigation(token) {
         try {
           const response = await axios.get(
-            "http://http://103.189.172.172:3000/check/role",
+            "http://103.189.172.172:3000/check/role",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -743,7 +743,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://http://103.189.172.172:3000/auth/logout"
+            "http://103.189.172.172:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -783,7 +783,7 @@
             }
 
             const response = await axios.post(
-              "http://http://103.189.172.172:3000/businessidea/business-idea",
+              "http://103.189.172.172:3000/businessidea/business-idea",
               {
                 yourName,
                 companyName,
@@ -815,7 +815,7 @@
           }
 
           const response = await axios.get(
-            `http://http://103.189.172.172:3000/businessidea/business-idea${id}`,
+            `http://103.189.172.172:3000/businessidea/business-idea${id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`, // Replace with your actual auth token

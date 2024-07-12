@@ -340,7 +340,7 @@
               }
   
               const response = await axios.get(
-                  "http://http://103.189.172.172:3000/enterprenuer/currentuser",
+                  "http://103.189.172.172:3000/enterprenuer/currentuser",
                   {
                       headers: {
                           Authorization: `Bearer ${token}`,
@@ -401,7 +401,7 @@
             throw new Error("Token not found");
         }
         
-        const response = await axios.patch('http://http://103.189.172.172:3000/enterprenuer/editprofile', formObject, {
+        const response = await axios.patch('http://103.189.172.172:3000/enterprenuer/editprofile', formObject, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -432,7 +432,7 @@
         }
 
         try {
-            const response = await axios.delete('http://http://103.189.172.172:3000/enterprenuer/deleteuser', {
+            const response = await axios.delete('http://103.189.172.172:3000/enterprenuer/deleteuser', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -475,7 +475,7 @@
   // Function to check user type and update navigation items
   async function updateUserNavigation(token) {
     try {
-      const response = await axios.get("http://http://103.189.172.172:3000/check/role", {
+      const response = await axios.get("http://103.189.172.172:3000/check/role", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -517,7 +517,7 @@
   async function handleLogout() {
     try {
       const response = await axios.post(
-        "http://http://103.189.172.172:3000/auth/logout"
+        "http://103.189.172.172:3000/auth/logout"
       );
       alert(response.data.message);
       localStorage.removeItem("token");

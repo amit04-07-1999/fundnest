@@ -425,7 +425,7 @@
       async function updateUserNavigation(token) {
         try {
           const response = await axios.get(
-            "http://http://103.189.172.172:3000/check/role",
+            "http://103.189.172.172:3000/check/role",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -469,7 +469,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://http://103.189.172.172:3000/auth/logout"
+            "http://103.189.172.172:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -505,7 +505,7 @@
           };
 
           const response = await axios.get(
-            "http://http://103.189.172.172:3000/videos/videos",
+            "http://103.189.172.172:3000/videos/videos",
             config
           );
           const videos = response.data;
@@ -586,7 +586,7 @@
 
             // Send the POST request using Axios to create a webinar booking
             const response = await axios.post(
-              "http://http://103.189.172.172:3000/webinars/webinar",
+              "http://103.189.172.172:3000/webinars/webinar",
               payload,
               config
             );
