@@ -266,80 +266,141 @@
         </h1>
 
         <div class="p-5" style="border: 1px solid #1753ef">
-          <form id="businessIdeaForm">
-            <div class="mb-3">
-              <label
-                for="yourName"
-                class="form-label mt-5 fs-5 fw-semibold text-primary"
-                >Your Name</label
+          <form id="webinarForm">
+            <div>
+              <label for="name" class="form-label fs-5 fw-semibold text-primary"
+                >Name</label
               >
               <input
                 type="text"
-                class="form-control mt-3"
-                style="height: 3.5rem"
-                id="yourName"
+                class="form-control"
+                id="name"
+                name="name"
+                style="height: 3rem"
+                required
               />
             </div>
-            <div class="mb-3">
+            <div>
               <label
-                for="companyName"
-                class="form-label mt-5 fs-5 fw-semibold text-primary"
-                >Company name</label
+                for="email"
+                class="form-label fs-5 fw-semibold text-primary"
+                >Email ID</label
               >
               <input
                 type="text"
-                class="form-control mt-3"
-                style="height: 3.5rem"
-                id="companyName"
+                class="form-control"
+                id="email"
+                name="email"
+                style="height: 3rem"
+                required
               />
             </div>
-            <div class="mb-3">
+            <div>
               <label
-                for="goal"
-                class="form-label mt-3 fs-5 fw-semibold text-primary"
+                for="phone"
+                class="form-label fs-5 fw-semibold text-primary"
+                >Phone No.</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="phone"
+                name="phone"
+                style="height: 3rem"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="company"
+                class="form-label fs-5 fw-semibold text-primary"
+                >Company Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="company"
+                name="company"
+                style="height: 3rem"
+                required
+              />
+            </div>
+            <div>
+              <label for="goal" class="form-label fs-5 fw-semibold text-primary"
                 >Goal</label
               >
               <input
-                type="text"
-                class="form-control mt-3"
-                style="height: 3.5rem"
+                class="form-control"
                 id="goal"
-              />
+                name="goal"
+                style="height: 3.5rem"
+                required
+              ></input>
             </div>
-            <div class="mb-3">
+            <div>
               <label
                 for="domain"
-                class="form-label mt-3 fs-5 fw-semibold text-primary"
+                class="form-label fs-5 fw-semibold text-primary"
                 >Domain</label
               >
               <input
                 type="text"
-                class="form-control mt-3"
-                style="height: 3.5rem"
+                class="form-control"
                 id="domain"
+                name="domain"
+                style="height: 3rem"
+                required
               />
             </div>
-            <div class="mb-3">
+            <div>
               <label
                 for="content"
-                class="form-label mt-3 fs-5 fw-semibold text-primary"
+                class="form-label fs-5 fw-semibold text-primary"
                 >Content</label
               >
               <textarea
-                class="form-control mt-3"
-                style="height: 15rem"
+                class="form-control"
                 id="content"
+                name="content"
+                style="height: 10rem"
+                required
               ></textarea>
             </div>
-            <div class="d-flex justify-content-center">
-              <button
-                type="submit"
-                class="text-white px-5 py-4 border-0 mt-5"
-                style="background-color: #343434; width: 20rem"
+            <div>
+              <label
+                for="qualification"
+                class="form-label fs-5 fw-semibold text-primary"
+                >Qualifications</label
               >
-                Submit your Idea
-              </button>
+              <input
+                class="form-control"
+                id="qualification"
+                name="qualification"
+                style="height: 3.5rem"
+                required
+              ></input>
             </div>
+            <div>
+              <label
+                for="attachment"
+                class="form-label fs-5 fw-semibold text-primary"
+                >Attachment</label
+              >
+              <input
+                type="file"
+                class="form-control"
+                id="attachment"
+                name="attachment"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="text-white mt-3 px-4 py-2 border-0 bg-primary rounded"
+              style="height: 3rem"
+            >
+              Make a Payment
+            </button>
           </form>
         </div>
 
@@ -629,7 +690,7 @@
           }
 
           const response = await axios.get(
-            "http://103.189.172.172:3000/enterprenuer/currentuser",
+            "http://localhost:3000/enterprenuer/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -698,14 +759,11 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get(
-            "http://103.189.172.172:3000/check/role",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -743,7 +801,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://103.189.172.172:3000/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -783,7 +841,7 @@
             }
 
             const response = await axios.post(
-              "http://103.189.172.172:3000/businessidea/business-idea",
+              "http://localhost:3000/businessidea/business-idea",
               {
                 yourName,
                 companyName,
@@ -808,17 +866,17 @@
     <script>
       async function getBusinessIdeaById(id) {
         try {
-          const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+          const token = localStorage.getItem("token");
           if (!token) {
             console.error("Token not found");
             return;
           }
 
           const response = await axios.get(
-            `http://103.189.172.172:3000/businessidea/business-idea${id}`,
+            `http://localhost:3000/businessidea/business-idea${id}`,
             {
               headers: {
-                Authorization: `Bearer ${token}`, // Replace with your actual auth token
+                Authorization: `Bearer ${token}`,
               },
             }
           );
@@ -839,6 +897,84 @@
 
       // Call the function with the ID of the business idea you want to retrieve
       getBusinessIdeaById("yourBusinessIdeaId"); // Replace with the actual business idea ID
+    </script>
+
+    <script>
+      document
+        .getElementById("webinarForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const token = localStorage.getItem("token");
+
+          // Collect form data
+          const formData = new FormData();
+          formData.append("name", document.getElementById("name").value);
+          formData.append("email", document.getElementById("email").value);
+          formData.append("phone", document.getElementById("phone").value);
+          formData.append("company", document.getElementById("company").value);
+          formData.append("goal", document.getElementById("goal").value);
+          formData.append("domain", document.getElementById("domain").value);
+          formData.append("content", document.getElementById("content").value);
+          formData.append(
+            "qualification",
+            document.getElementById("qualification").value
+          );
+          formData.append(
+            "attachment",
+            document.getElementById("attachment").files[0]
+          );
+
+          try {
+            // Send the POST request using Axios
+            const response = await axios.post(
+              "http://localhost:3000/api/idea",
+              formData,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+
+            // Handle success
+            console.log("Idea created:", response.data);
+            if (response.status === 201) {
+              const { razorpayOrder } = response.data;
+
+              const options = {
+                key: "rzp_test_n5oTuMseyDclhS", // Enter the Key ID generated from the Dashboard
+                amount: razorpayOrder.amount.toString(),
+                currency: razorpayOrder.currency,
+                name: "Webinar Booking",
+                description: "Test Transaction",
+                order_id: razorpayOrder.id,
+                handler: async function (response) {
+                  // Handle the payment success
+                  alert("Thank you, Your Webinar is Booked");
+                  window.location.reload();
+                },
+                prefill: {
+                  name: document.getElementById("name").value,
+                  email: document.getElementById("email").value,
+                },
+                theme: {
+                  color: "#3399cc",
+                },
+              };
+
+              const paymentObject = new Razorpay(options);
+              paymentObject.open();
+            }
+          } catch (error) {
+            // Handle error
+            console.error(
+              "There was an error creating the idea:",
+              error.response.data
+            );
+          }
+        });
     </script>
   </body>
 </html>

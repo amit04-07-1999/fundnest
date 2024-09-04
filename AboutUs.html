@@ -114,21 +114,21 @@
             growth.</span
           >
 
-          <p class="fw-bold fs-3 text-start">
+          <!-- <p class="fw-bold fs-3 text-start">
             A Legacy of Investment and Growth
-          </p>
+          </p> -->
 
           <span class="d-flex text-start mb-5"
-            >FundNest was born out of a vision to empower startups and nurture
-            their potential. Over the past two decades, we have stayed true to
-            this vision, evolving into a cornerstone of the venture capital
-            ecosystem. Our history is marked by numerous success stories, where
-            our investment and guidance have propelled companies to new heights.
-            The foundation of our approach is built on understanding the unique
-            challenges that startups face, particularly in their early stages.
-            We recognize that each company is different, and thus, we provide
-            customized solutions tailored to meet their specific needs.</span
-          >
+            >Brandneers is a dynamic platform where new entrepreneurs, MBA
+            students, and startups can share their business ideas and receive
+            comprehensive guidance throughout their entrepreneurial journey. Our
+            mission is to build successful brands across Australia, Canada, and
+            India. At Brandneers, we provide entrepreneurship guidance, evaluate
+            and refurbish ideas, offer consultancy for further guidance, assist
+            with business registration, help seek investments, and provide
+            operational services like accounting, marketing, HR, and even
+            limited outsourcing.
+          </span>
 
           <p class="fw-bold fs-3 text-start">Diverse Industry Focus</p>
 
@@ -272,21 +272,28 @@
         </h1>
         <img src="Images/vision.jpg" class="img-fluid w-100" />
         <p class="d-flex text-start mt-5">
-          At FundNest, we envision a future driven by innovation and
-          transformative change. As a leading venture capital firm, our mission
-          is to empower visionary entrepreneurs by providing not only capital
-          but also strategic guidance and comprehensive support. We believe in
-          fostering a culture of innovation, unlocking the full potential of
-          startups across diverse industries. Sustainability is at our core. We
-          are committed to building resilient businesses that achieve financial
-          success while positively impacting society and the environment. Our
-          long-term focus ensures our portfolio companies are equipped to
-          navigate evolving markets and grow sustainably. Collaboration is key
-          to our vision. We strive to create a dynamic ecosystem where startups,
-          investors, and industry experts can connect and share insights. By
-          fostering this community, we enhance the collective potential of our
-          portfolio companies and the broader startup landscape. Diversity and
-          inclusion are integral to our values. We support a diverse range of
+          Brandeers is founded by a Masters students in Australia. Brandneers
+          aims to offer 360-degree support to migrated students coming from
+          India or other countries to Australia and Canada. She observed that
+          despite having high-level qualifications, many students were working
+          blue-collar jobs while harboring innovative business ideas. This
+          realization fueled her vision to empower these individuals and help
+          them transform their ideas into thriving businesses.<br/> At FundNest, we
+          envision a future driven by innovation and transformative change. As a
+          leading venture capital firm, our mission is to empower visionary
+          entrepreneurs by providing not only capital but also strategic
+          guidance and comprehensive support. We believe in fostering a culture
+          of innovation, unlocking the full potential of startups across diverse
+          industries. Sustainability is at our core. We are committed to
+          building resilient businesses that achieve financial success while
+          positively impacting society and the environment. Our long-term focus
+          ensures our portfolio companies are equipped to navigate evolving
+          markets and grow sustainably. Collaboration is key to our vision. We
+          strive to create a dynamic ecosystem where startups, investors, and
+          industry experts can connect and share insights. By fostering this
+          community, we enhance the collective potential of our portfolio
+          companies and the broader startup landscape. Diversity and inclusion
+          are integral to our values. We support a diverse range of
           entrepreneurs and invest in companies that promote inclusivity,
           believing that diverse perspectives drive innovative solutions.
           FundNest’s vision extends to making a global impact. By addressing
@@ -488,14 +495,11 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get(
-            "http://103.189.172.172:3000/check/role",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -533,7 +537,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://103.189.172.172:3000/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");

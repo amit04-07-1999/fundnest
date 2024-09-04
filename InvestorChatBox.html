@@ -223,14 +223,11 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get(
-            "http://103.189.172.172:3000/check/role",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -268,7 +265,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://103.189.172.172:3000/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -313,7 +310,7 @@
           // console.log(entrepreneurId);
 
           const response = await axios.get(
-            `http://103.189.172.172:3000/investor/enterprenuer/${entrepreneurId}`,
+            `http://localhost:3000/investor/enterprenuer/${entrepreneurId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -351,7 +348,7 @@
 
         try {
           const response = await axios.get(
-            `http://103.189.172.172:3000/enterprenuer/${roomId}`,
+            `http://localhost:3000/enterprenuer/${roomId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -422,7 +419,7 @@
 
           try {
             const response = await axios.post(
-              `http://103.189.172.172:3000/enterprenuer/send-message/${investorId}`,
+              `http://localhost:3000/enterprenuer/send-message/${investorId}`,
               { message, receiverId, roomId },
               { headers: { Authorization: `Bearer ${token}` } }
             );

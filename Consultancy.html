@@ -1242,14 +1242,11 @@
       // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
-          const response = await axios.get(
-            "http://103.189.172.172:3000/check/role",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get("http://localhost:3000/check/role", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           if (response.status === 200) {
             // console.log(response.data);
@@ -1287,7 +1284,7 @@
       async function handleLogout() {
         try {
           const response = await axios.post(
-            "http://103.189.172.172:3000/auth/logout"
+            "http://localhost:3000/auth/logout"
           );
           alert(response.data.message);
           localStorage.removeItem("token");
@@ -1437,13 +1434,13 @@
 
         if (customerName && date && timeslot && platform) {
           try {
-            const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+            const token = localStorage.getItem("token");
             if (!token) {
               console.error("Token not found");
               return;
             }
             const response = await axios.post(
-              "http://103.189.172.172:3000/appointments/appointment",
+              "http://localhost:3000/appointments/appointment",
               {
                 customerName,
                 date,
