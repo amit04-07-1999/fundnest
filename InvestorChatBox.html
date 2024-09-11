@@ -240,7 +240,7 @@
                 "block";
               document.getElementById("investorprofile").style.display =
                 "block";
-            } else if (userType === "enterprenuer") {
+            } else if (userType === "entrepreneur") {
               document.getElementById("investorlist").style.display = "block";
               document.getElementById("investorIdea").style.display = "block";
               document.getElementById("entrepreneurprofile").style.display =
@@ -310,7 +310,7 @@
           // console.log(entrepreneurId);
 
           const response = await axios.get(
-            `http://localhost:3000/investor/enterprenuer/${entrepreneurId}`,
+            `http://localhost:3000/investor/entrepreneur/${entrepreneurId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -348,7 +348,7 @@
 
         try {
           const response = await axios.get(
-            `http://localhost:3000/enterprenuer/${roomId}`,
+            `http://localhost:3000/entrepreneur/${roomId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -419,7 +419,7 @@
 
           try {
             const response = await axios.post(
-              `http://localhost:3000/enterprenuer/send-message/${investorId}`,
+              `http://localhost:3000/entrepreneur/send-message/${investorId}`,
               { message, receiverId, roomId },
               { headers: { Authorization: `Bearer ${token}` } }
             );

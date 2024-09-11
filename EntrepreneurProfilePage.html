@@ -690,7 +690,7 @@
           }
 
           const response = await axios.get(
-            "http://localhost:3000/enterprenuer/currentuser",
+            "http://localhost:3000/entrepreneur/currentuser",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -700,7 +700,7 @@
 
           if (response.status === 200) {
             const user = response.data;
-            // console.log(user);
+            console.log(user);
             populateUserProfile(user);
           } else {
             console.error("Error fetching current user:", response.statusText);

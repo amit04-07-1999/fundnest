@@ -14,86 +14,162 @@
   </head>
   <body>
     <div class="container">
-      <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">LOGO</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="AboutUs.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#blogs">Blogs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Course.html">Courses</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Consultancy.html">Consult Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Resources.html">Resources</a>
-              </li>
-
-              <li class="nav-item" id="entrepreneurIdea" style="display: none">
-                <a class="nav-link" href="EntrepreneurIdeas.html"
-                  >Entrepreneur Ideas</a
-                >
-              </li>
-              <!-- <li class="nav-item" id="investorIdea" style="display: none">
-                <a class="nav-link" href="InvestorIdeas.html">Investor Ideas</a>
-              </li> -->
-              <li class="nav-item" id="investorlist" style="display: none">
-                <a class="nav-link" href="InvestorPane.html">Investor List</a>
-              </li>
-              <li class="nav-item" id="entrepreneurList" style="display: none">
-                <a class="nav-link" href="EntrepreneurPane.html"
-                  >Entrepreneur List</a
-                >
-              </li>
-              <li class="nav-item" id="investorprofile" style="display: none">
-                <a class="nav-link" href="InvestorProfilePage.html"
-                  >Your Profile</a
-                >
-              </li>
-              <li
-                class="nav-item"
-                id="entrepreneurprofile"
-                style="display: none"
+      <div class="d-flex justify-content-between shadow-sm py-2">
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <div class="d-flex gap-2">
+              <img src="Images/logo.PNG" style="height: 2.5rem" />
+              <a
+                class="navbar-brand"
+                href="index.html"
+                style="font-size: x-large"
+                >BRANDNEERS</a
               >
-                <a class="nav-link" href="EntrepreneurProfilePage.html"
-                  >Your Profile</a
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <!-- Other nav items -->
+                <li class="nav-item">
+                  <a
+                    class="nav-link fw-semibold"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="#aboutFundnest"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-semibold" href="#blogs">Blogs</a>
+                </li>
+                <li class="nav-item" id="courseSection">
+                  <a class="nav-link fw-semibold" href="Course.html">Courses</a>
+                </li>
+                <li class="nav-item" id="resourceSection">
+                  <a class="nav-link fw-semibold" href="Resources.html"
+                    >Resources</a
+                  >
+                </li>
+                <li class="nav-item" id="consultUsSection">
+                  <a
+                    class="nav-link fw-semibold"
+                    href="Consultancy.html"
+                    id="consultLink"
+                    >ConsultUs</a
+                  >
+                </li>
+                <!-- Conditional nav items -->
+                <li
+                  class="nav-item fw-semibold"
+                  id="entrepreneurIdea"
+                  style="display: none"
                 >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="loginLink" href="Login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" id="logoutLink" href="index.html">
-                  Log Out
-                </button>
-              </li>
-            </ul>
+                  <a class="nav-link" href="EntrepreneurIdeas.html"
+                    >Entrepreneur Ideas</a
+                  >
+                </li>
+                <li
+                  class="nav-item fw-semibold"
+                  id="entrepreneurList"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="EntrepreneurPane.html"
+                    >Entrepreneur List</a
+                  >
+                </li>
+                <li
+                  class="nav-item fw-semibold"
+                  id="investorIdea"
+                  style="display: none"
+                >
+                  <a class="nav-link" href="InvestorIdeas.html"
+                    >Investor Ideas</a
+                  >
+                </li>
+                <li class="nav-item fw-semibold" id="investorlist">
+                  <a class="nav-link" href="InvestorPane.html">Investor List</a>
+                </li>
+
+                <buttton class="nav-item">
+                  <a
+                    class="nav-link rounded px-3 fw-semibold"
+                    style="
+                      margin-left: 28rem;
+                      background-color: rgba(0, 0, 0, 0.13);
+                    "
+                    id="loginLink"
+                    href="Login.html"
+                    >Login</a
+                  >
+                </buttton>
+              </ul>
+            </div>
           </div>
+        </nav>
+        <!-- Profile dropdown -->
+        <div
+          class="dropdown mt-4"
+          style="margin-right: 1rem"
+          id="profileDropdown"
+        >
+          <a
+            href="#"
+            class="d-flex align-items-center link-dark text-decoration-none"
+            id="profileDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+              />
+            </svg>
+          </a>
+          <ul class="dropdown-menu text-small shadow">
+            <li class="nav-item" id="investorprofile" style="display: none">
+              <a class="nav-link" href="InvestorProfilePage.html"
+                >Your Profile</a
+              >
+            </li>
+            <li class="nav-item" id="entrepreneurprofile" style="display: none">
+              <a class="nav-link" href="EntrepreneurProfilePage.html"
+                >Your Profile</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+
+            <li class="nav-item">
+              <button class="nav-link" id="logoutLink" href="index.html">
+                Log Out
+              </button>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
     </div>
 
     <div style="position: relative">
@@ -409,19 +485,19 @@
         const token = localStorage.getItem("token");
         const loginLink = document.getElementById("loginLink");
         const logoutLink = document.getElementById("logoutLink");
+        const profileDropdown = document.getElementById("profileDropdown");
 
         if (token) {
           loginLink.style.display = "none";
           logoutLink.style.display = "block";
+          profileDropdown.style.display = "block";
         } else {
           loginLink.style.display = "block";
           logoutLink.style.display = "none";
+          profileDropdown.style.display = "none";
         }
       }
 
-      updateNavbar();
-
-      // Function to check user type and update navigation items
       async function updateUserNavigation(token) {
         try {
           const response = await axios.get("http://localhost:3000/check/role", {
@@ -431,21 +507,70 @@
           });
 
           if (response.status === 200) {
-            // console.log(response.data);
             const userType = response.data.role;
-            // console.log(userType);
-            if (userType === "investor") {
-              document.getElementById("entrepreneurList").style.display =
+
+            // Show the appropriate profile link
+            const investorProfile = document.getElementById("investorprofile");
+            const entrepreneurProfile = document.getElementById(
+              "entrepreneurprofile"
+            );
+
+            if (userType === "entrepreneur") {
+              entrepreneurProfile.style.display = "block";
+              investorProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
                 "block";
+              document.getElementById("investorSection").style.display = "none";
+              // Hide Entrepreneur Ideas and Entrepreneur List from entrepreneurs
+              document.getElementById("entrepreneurIdea").style.display =
+                "none";
+              document.getElementById("entrepreneurList").style.display =
+                "none";
+
+              // Show Investor Ideas and Investor List to entrepreneurs
+              // document.getElementById("investorIdea").style.display = "block";
+              document.getElementById("investorlist").style.display = "block";
+
+              // Show the success section only to entrepreneurs
+              document.getElementById("sucessSection").style.display = "block";
+
+              // Show Course, Resources, and ConsultUs sections for entrepreneurs
+              document.getElementById("courseSection").style.display = "block";
+              document.getElementById("resourceSection").style.display =
+                "block";
+              document.getElementById("consultUsSection").style.display =
+                "block"; // Ensure ConsultUs is displayed
+            } else if (userType === "investor") {
+              investorProfile.style.display = "block";
+              entrepreneurProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display =
+                "block";
+
+              // Show Entrepreneur Ideas and Entrepreneur List for investors
               document.getElementById("entrepreneurIdea").style.display =
                 "block";
-              document.getElementById("investorprofile").style.display =
+              document.getElementById("entrepreneurList").style.display =
                 "block";
-            } else if (userType === "enterprenuer") {
-              document.getElementById("investorlist").style.display = "block";
-              document.getElementById("investorIdea").style.display = "block";
-              document.getElementById("entrepreneurprofile").style.display =
-                "block";
+
+              // Hide Investor Ideas and Investor List from investors
+              document.getElementById("investorIdea").style.display = "none";
+              document.getElementById("investorlist").style.display = "none";
+
+              // Hide Course, Resources, and ConsultUs sections from investors if needed
+              document.getElementById("courseSection").style.display = "none";
+              document.getElementById("resourceSection").style.display = "none";
+              document.getElementById("consultUsSection").style.display =
+                "none";
+              // Hide the success section from investors
+              document.getElementById("sucessSection").style.display = "none";
+            } else {
+              entrepreneurProfile.style.display = "none";
+              investorProfile.style.display = "none";
+              document.getElementById("entrepreneurSection").style.display =
+                "none";
+              document.getElementById("investorSection").style.display = "none";
             }
           } else {
             console.error("Failed to fetch user type:", response.statusText);
@@ -457,12 +582,24 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         const token = localStorage.getItem("token");
+
+        updateNavbar();
+
         if (token) {
           updateUserNavigation(token);
+        } else {
+          // If no one is logged in, show the Consult Us section but disable the link
+          document.getElementById("consultUsSection").style.display = "block";
+          document.getElementById("consultLink").setAttribute("href", "#"); // Disable access without login
+          document
+            .getElementById("consultLink")
+            .addEventListener("click", function (event) {
+              event.preventDefault();
+              alert("Please Log in");
+            });
         }
       });
 
-      // Function to handle logout
       async function handleLogout() {
         try {
           const response = await axios.post(
@@ -477,7 +614,6 @@
         }
       }
 
-      // Add event listener to the logout link
       document
         .getElementById("logoutLink")
         .addEventListener("click", function (event) {
@@ -576,7 +712,10 @@
             }
 
             const config = {
-              
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
             };
 
             // Send the POST request using Axios to create a webinar booking

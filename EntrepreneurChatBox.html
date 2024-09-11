@@ -238,7 +238,7 @@
                 "block";
               document.getElementById("investorprofile").style.display =
                 "block";
-            } else if (userType === "enterprenuer") {
+            } else if (userType === "entrepreneur") {
               document.getElementById("investorlist").style.display = "block";
               document.getElementById("investorIdea").style.display = "block";
               document.getElementById("entrepreneurprofile").style.display =
@@ -312,7 +312,7 @@
       const investorId = params.id;
       // console.log(investorId);
       const response = await axios.get(
-        `http://localhost:3000/enterprenuer/investor/${investorId}`,
+        `http://localhost:3000/entrepreneur/investor/${investorId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -385,7 +385,7 @@
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/enterprenuer/${roomId}`,
+        `http://localhost:3000/entrepreneur/${roomId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
